@@ -1,0 +1,14 @@
+package packageGUI;
+
+import javax.swing.JPanel;
+
+
+public class Toolbar extends JPanel{
+	
+	public Toolbar(){
+		
+	}
+	
+	
+
+}

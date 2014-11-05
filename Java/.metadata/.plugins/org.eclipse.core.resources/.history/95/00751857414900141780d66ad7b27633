@@ -1,0 +1,9 @@
+package packageGUI;
+
+
+
+public interface StringListerner {
+	
+	
+
+}

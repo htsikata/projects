@@ -1,0 +1,80 @@
+package packageOne;
+
+public class PolyClassOne {
+
+	private String name;
+	private String course;
+	private int age;
+	private int id; 
+	// constructor
+	PolyClassOne(String name, String course, int age, int id){
+		this.name = name ;
+		this.course = course;
+		this.age = age;
+		this.id = id;
+	}
+
+	// another constructor
+
+	PolyClassOne(String name){
+		this.name = name;
+	}
+
+	// default constructor
+
+	PolyClassOne(){
+
+	}
+
+	// setters and getters
+	public void setName(String theName){
+		this.name = theName;
+	}
+
+	public void setAge(int theAge){
+		this.age = theAge;
+	}
+
+	public void setId(int theId){
+		this.id = theId;
+	}
+
+	public void setCourse(String theCourse){
+		this.course = theCourse;
+	}
+
+	public String getName(){
+		return name;
+	}
+
+	public String getCourse(){
+		return course;
+	}
+
+	public int getAge(){
+		return age;
+
+	}
+
+	public int getId(){
+		return id;
+	}
+
+	// method to print details 
+
+	public void printDetails(){
+		System.out.println("Here are your details: ");
+		System.out.println();
+		System.out.println("name :" + this.name + "  "+ "course : "+ this.course + "  "+ "age :" + this.age + " " + "Id : "+ this.id );
+
+	}
+
+	public void displayPrompt(String prompt){
+		System.out.println(prompt);
+
+	}
+
+	public void displayMessage(String message){
+		System.out.println(message);
+	}
+}

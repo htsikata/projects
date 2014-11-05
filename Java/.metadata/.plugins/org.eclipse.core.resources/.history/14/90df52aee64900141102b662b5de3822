@@ -1,0 +1,60 @@
+package packageGUI;
+
+import javax.swing.border.Border.*;
+
+
+
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+
+public class FormPanel extends JPanel{
+	private JLabel bookName;
+	private JLabel bookAuthor;
+	private JLabel other;
+	private JButton okButton;
+	private JTextField textField;
+	private JTextField bookN;
+	
+	public FormPanel(){
+		Dimension dim = getPreferredSize();
+		dim.width = 350;
+		setPreferredSize(dim);		
+		bookName = new JLabel("Book Name");
+		bookAuthor = new JLabel("Author");
+		okButton = new JButton("Ok");
+		textField = new JTextField(15);
+		bookN = new JTextField(20);
+		
+		Border innerBorder = BorderFactory.createTitledBorder("Add records");
+
+		Border outerBorder = BorderFactory.createEmptyBorder(8,8,8,8);
+
+		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
+		
+		 // setting grid for the components on the form panel
+		setLayout(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+		gc.gridx = 0;
+		gc.gridy = 0;
+		gc.weightx = 1;
+		gc.weighty = 1;
+		gc.fill = GridBagConstraints.NONE;
+		
+		add(bookName, gc);
+		
+		gc.gridx = 5;
+		gc.gridy = 0;
+		add(bookN, gc);
+		
+	};
+
+}

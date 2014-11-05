@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;packageOne.MethodTry.java&apos; to &apos;FindMax.java&apos;&#x0A;- Original project: &apos;projectOne&apos;&#x0A;- Original element: &apos;packageOne.MethodTry.java&apos;&#x0A;- Renamed element: &apos;packageOne.FindMax.java&apos;" description="Rename compilation unit &apos;MethodTry.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;packageOne{MethodTry.java" name="FindMax.java" references="false" stamp="1411778410120" version="1.0"/>
+</session>

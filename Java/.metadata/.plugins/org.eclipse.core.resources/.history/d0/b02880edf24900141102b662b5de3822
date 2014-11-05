@@ -1,0 +1,32 @@
+package packageGUI;
+
+import java.util.EventObject;
+
+public class FormEvent extends EventObject {
+	
+	
+	private String bookName;
+	private String author;
+	
+
+	public FormEvent(Object source) {
+		super(source);
+		
+	}
+	
+	public String getName(){
+		return bookName;
+	
+	}
+	
+	public String getAuthor(){
+		return author;
+	}
+    public void setName(String bookName ){
+    	this.bookName = bookName;
+  
+    }
+    public void setAuthor(String author){
+    	this.author = author;
+    }
+}

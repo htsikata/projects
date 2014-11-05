@@ -1,0 +1,52 @@
+package packageOne;
+
+import java.util.Scanner;
+
+public class PolyTest {
+	
+	public static void main(String[] args){
+		
+		PolyClassOne po1 = new PolyClassOne();
+		
+		PolyClassOne po2 = new PolyClassOne("Hayford","mathematics",31,1234);
+		
+		PolyClassTwo pt1 = new PolyClassTwo();
+		
+		po1.printDetails();
+		
+		System.out.println();
+		
+	    p02.printDetails();
+	    
+	    System.out.println();
+	    
+	    pt1.printDetails();
+	    
+	    pt1.setWife("Mary");
+	    
+	    pt1.setFather("Tsikata");
+	    
+	    pt1.setMother("Elizabeth");
+	    
+	    pt1.printDetails();
+	    
+	    pt1.setAge(67);
+	    
+	    System.out.println(pt1.getAge());
+	    
+	    Scanner input = new Scanner(System.in);
+	    
+	    System.out.println("what is your new name?");
+	    
+	    String tmpName =   input.nextLine();
+	    
+	    po2.setName("Jonathan");
+	    
+	    System.out.println();
+	    
+	    po2.printDetails();
+	    
+		
+	}
+
+}

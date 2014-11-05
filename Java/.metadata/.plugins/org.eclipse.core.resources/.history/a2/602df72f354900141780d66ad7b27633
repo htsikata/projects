@@ -1,0 +1,29 @@
+package packageGUI;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+
+public class Toolbar extends JPanel{   // 
+	
+	private JButton hellowButton;
+	private JButton goodByeButton;
+	
+	public Toolbar(){
+		
+		//		
+		hellowButton = new JButton("hello");
+		
+		goodByeButton = new JButton("Good bye");
+		
+		// set layout for the toolbar
+		
+		setLayout(new FlowLayout());
+		
+		// add the buttons to the toolbar.
+		add(hellowButton);
+		add(goodByeButton);
+	}
+}

@@ -1,0 +1,24 @@
+package packageGUI;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+
+public class Toolbar extends JPanel{
+	
+	private JButton hellowButton;
+	private JButton goodByeButton;
+	
+	
+	
+	public Toolbar(){
+		
+		hellowButton = new JButton("hello");
+		goodByeButton = new JButton("Good bye");
+		
+		
+	}
+	
+	
+
+}

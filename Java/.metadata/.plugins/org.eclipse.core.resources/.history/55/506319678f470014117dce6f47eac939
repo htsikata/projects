@@ -1,0 +1,41 @@
+package packageOne;
+
+public class PolyClassTwo extends PolyClassOne {
+	String wifeName ;
+	String fatherName;
+	String motherName;
+	
+	PolyClassTwo(){
+		
+	}
+	
+   public void setWife(String wife){
+	   this.wifeName = wife;
+   }
+   
+   public void setMother(String mother){
+	   this.motherName = mother;
+	   
+   }
+   public void setFather(String father){
+	   this.fatherName = father;
+   }
+   
+   public String getWife(){
+	   return wifeName;
+   }
+   
+   public String getFather(){
+	   return fatherName;
+	   
+   }
+   public String getMother(){
+	   return motherName;
+	   
+   }
+   
+   public void printDetails(){
+	  System.out.println(" Here are the details of your other family members:"); 
+	  System.out.println("wife:  " + this.wifeName + "  " +"mother :  " +  this.motherName + "  " + "father :  " + this.fatherName);
+   }
+}

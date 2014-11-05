@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="FirstScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainScreenController">
+   <children>
+      <SplitPane fx:id="mainSplitPane" dividerPositions="0.3956262425447316" layoutX="20.0" layoutY="145.0" orientation="VERTICAL" prefHeight="655.0" prefWidth="739.0" stylesheets="@../CSS/mainScreen.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="194.0" prefWidth="615.0">
+               <children>
+                  <Button fx:id="btnFirstSignIn" layoutX="227.0" layoutY="148.0" mnemonicParsing="false" onAction="#firstSignInButton" prefHeight="130.0" prefWidth="299.0" text="SIGN IN">
+                     <font>
+                        <Font size="49.0" />
+                     </font>
+                     <padding>
+                        <Insets left="2.0" right="2.0" />
+                     </padding>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <SplitPane fx:id="mainSplitPane2" prefHeight="317.0" prefWidth="698.0">
+               <items>
+                <AnchorPane fx:id="secondAnchor" minHeight="0.0" minWidth="0.0" prefHeight="326.0" prefWidth="698.0">
+                     <children>
+                        <Button fx:id="btnFirstSignOut" layoutX="226.0" layoutY="43.0" mnemonicParsing="false" onAction="#firstSignOutButton" prefHeight="130.0" prefWidth="299.0" text="SIGN OUT">
+                           <font>
+                              <Font size="49.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Button>
+                        <Label fx:id="lblSucessMessage" layoutX="19.0" layoutY="219.0" prefHeight="100.0" prefWidth="760.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="18.0" />
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+        </items>
+      </SplitPane>
+      <SplitPane fx:id="mainSplitPane3" layoutX="20.0" layoutY="14.0" prefHeight="100.0" prefWidth="760.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0">
+         <items>
+            <Label fx:id="lblTitleMessage" contentDisplay="CENTER" layoutX="22.0" layoutY="14.0" prefHeight="60.0" prefWidth="703.0" text="      PLEASE SIGN IN OR OUT">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

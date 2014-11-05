@@ -1,0 +1,128 @@
+package packageGUI;
+
+import javax.swing.border.Border.*;
+
+
+
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+
+public class FormPanel extends JPanel{
+	private JLabel bookName;
+	private JLabel bookAuthor;
+	private JLabel other;
+	private JButton okButton;
+	private JTextField authorField;
+	private JTextField bookN;
+	private FormListener formListener;
+	
+	
+	public FormPanel(){
+		Dimension dim = getPreferredSize();
+		dim.width = 350;
+		setPreferredSize(dim);		
+		bookName = new JLabel("Book Name");
+		bookAuthor = new JLabel("Author");
+		okButton = new JButton("Ok");
+		authorField = new JTextField(15);
+		bookN = new JTextField(15);
+		
+		okButton.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				String bookName = bookN.getText();
+				String author = authorField.getText();
+				
+				FormEvent ev = new FormEvent(this,bookName, author);
+				
+			}
+			
+		});
+		
+		formPanel.setFormListener(new FormListener(){
+			
+			public void FormEventOccured(FormEvent e){
+				String bookName = e.getName();
+				String author = e.getAuthor();
+				
+				TextPanel textPanel;
+				textPanel.appendText(bookName + ":" + author + "\n");
+			}
+			
+		});
+	
+		Border innerBorder = BorderFactory.createTitledBorder("Find Books ");
+
+		Border outerBorder = BorderFactory.createEmptyBorder(8,8,8,8);
+
+		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
+		
+		 // setting grid for the components on the form panel
+		setLayout(new GridBagLayout());
+		
+		GridBagConstraints gc = new GridBagConstraints();
+		
+		
+		
+		// first row /////////////////////////////////////
+		gc.weightx = 1;
+		gc.weighty = 0.1;
+		
+		gc.gridx = 0;
+		gc.gridy = 0;	
+		
+		gc.fill = GridBagConstraints.NONE;		
+		gc.anchor = GridBagConstraints.LINE_END;
+		gc.insets = new Insets(0,0,0,5);
+		
+		add(bookName, gc);
+		gc.gridx = 1;
+		gc.gridy = 0;
+		
+		
+		//add(bookN, gc);
+		gc.anchor = GridBagConstraints.LINE_START;
+		add(bookN,gc);
+			
+		// second row//////////////////////////////////////
+		gc.weightx = 1;
+		gc.weighty = 0.1;
+		gc.gridy =1 ;
+		gc.gridx =0;
+		gc.insets = new Insets(0,0,0,6);
+		gc.anchor = GridBagConstraints.LINE_END;
+		add(bookAuthor,gc);
+		
+		gc.gridy = 1;
+		gc.gridx = 1;
+		gc.insets = new Insets(0,0,0,0);
+		gc.anchor = GridBagConstraints.FIRST_LINE_START;
+		add(authorField,gc);
+		// third row //////////////////////////////////////
+		gc.weightx = 1;
+		gc.weighty = 2;
+		gc.gridy = 2;
+		gc.gridx = 1;
+		gc.insets = new Insets(0,0,0,0);
+		add(okButton,gc);	
+	};
+	
+	
+	public void setFormListener(FormListener listener){
+		this.formListener = listener;
+		
+	}
+
+}

@@ -1,0 +1,33 @@
+package packageGUI;
+
+import java.awt.BorderLayout;
+import java.awt.ScrollPane;
+import java.awt.TextArea;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class TextPanel extends JPanel {
+	
+	private JTextArea textArea;
+
+	// constructor for text panel
+	
+	public TextPanel(){
+
+		textArea = new JTextArea();
+
+		setLayout(new BorderLayout());
+
+		add(new JScrollPane(textArea),BorderLayout.CENTER);
+	}
+	
+
+	// method to append text to text area.
+	
+	public void appendText(String text){	
+
+		textArea.append(text);
+	}
+
+}

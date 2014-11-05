@@ -1,0 +1,43 @@
+package packageOne;
+
+import java.util.Scanner;
+
+public class PolyTest {
+	
+	public static void main(String[] args){
+		
+		PolyClassOne pone = new PolyClassOne();
+		
+		PolyClassTwo ptwo = new PolyClassTwo();
+			    
+	    Scanner input = new Scanner(System.in);
+	    
+	    System.out.println("what is your name?");
+	    
+	    String tmpName =   input.nextLine();
+        pone.setName(tmpName);
+        
+        pone.displayPrompt("what course are you offering?");
+        String tmpcourse = input.nextLine();
+        pone.setCourse(tmpcourse);
+        
+	    System.out.println();
+	    
+	    pone.displayPrompt("what is our age?");
+	    int tmpAge = input.nextInt();
+	    pone.setAge(tmpAge);
+	  
+	    System.out.println();
+	    
+	    pone.displayPrompt("what is your ID?");
+	    int tmpId = input.nextInt();
+	    pone.setId(tmpId);
+	    
+	    System.out.println();
+	    
+	    pone.printDetails();
+	    
+		
+	}
+
+}

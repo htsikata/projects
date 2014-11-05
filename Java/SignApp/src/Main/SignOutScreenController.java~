@@ -1,0 +1,139 @@
+/**
+ *
+ * @author Hayford
+ */
+package Main;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.ResourceBundle;
+
+import java.util.Timer;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class SignOutScreenController implements Initializable {
+	@FXML
+	private Label lblSignOutMessage;
+	@FXML
+	private TextField tfSecondFname;
+	@FXML
+	private TextField tfSecondInitial;
+	@FXML
+	private TextField tfSecondLname;
+	@FXML
+	private TextArea taComments;
+	@FXML
+	private Button btnSecondSignOut;
+
+	SignInScreenController sis = new SignInScreenController();
+
+	Stage signOutStage = new Stage();
+
+	Parent signOutinterface;
+
+	// method to show signOut screen
+	public void showSignOut() throws IOException {
+		signOutinterface = FXMLLoader.load(getClass().getResource(
+				"/FXML/signOutScreen.fxml"));
+		Scene signOutScene = new Scene(signOutinterface, 620, 650);
+                signOutScene.getStylesheets().add("/CSS/signOutScreen.css");
+		signOutStage.setScene(signOutScene);
+                signOutStage.setTitle("MATH RESOURCE LAB SIGN OUT");
+		signOutStage.show();
+	}
+
+	// method to handle second sign In button.
+	@FXML
+	public void secondSignOutButton(ActionEvent event) throws IOException {
+
+		if (gatherSignOutInfo()[0].isEmpty()
+				|| gatherSignOutInfo()[2].isEmpty()) {
+			lblSignOutMessage.setText("You must enter your names to sign out!");
+		} else if (sis.findPattern(gatherSignOutInfo()[0])
+				|| sis.findPattern(gatherSignOutInfo()[2])) {
+
+			lblSignOutMessage
+					.setText("Your name cannot contain non-word characters!");
+
+		} else {
+			putOuttoDB(gatherSignOutInfo());
+                        lblSignOutMessage.setText("sign out successful!");
+			// System.out.println("Do all stuff for second signout button");
+			// get the window and close it
+          
+			Stage signOutStage = (Stage) btnSecondSignOut.getScene()
+					.getWindow();
+                         signOutStage.close();
+		}
+	}
+
+	// method to gather sign out form info
+	private String[] gatherSignOutInfo() {
+		String[] mytime = new DataBank().getDateAndTime();
+		// String [] signOutDetails = new String[4];
+		String first = tfSecondFname.getText();
+		String middle = tfSecondInitial.getText();
+		String last = tfSecondLname.getText();
+		String comment = taComments.getText();
+		String[] signOutDetails = { first, middle, last, comment, mytime[0],
+				mytime[1], mytime[2] };
+		return signOutDetails;
+	}
+
+	public void putOuttoDB(String[] info) {
+		Connection conn = null;
+		String firstName = info[0];
+		String initial = info[1];
+		String lastName = info[2];
+		String comment = info[3];
+		String exit_day = info[4];
+		String exit_time = info[5];
+		String exit_date = info[6];
+
+		String sql = "INSERT INTO signout(firstName,initial,lastName"
+				+ ",comment,exit_day,exit_time,exit_date)" + " VALUES('"
+				+ firstName + "','" + initial + "','" + lastName + "','"
+				+ comment + "','" + exit_day + "','" + exit_time + "','"
+				+ exit_date + "')";
+
+		try {
+			final String userName = "root"; // database username
+			final String passWord = "chilly"; // database password
+			final String url = "jdbc:mysql://localhost/students"; // database on
+																	// localhost
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			conn = DriverManager.getConnection(url, userName, passWord); // get
+																			// connection
+			// System.out.println("Database connection successful");
+			Statement stmt = conn.createStatement();
+			System.out.println("connection successfully");
+			stmt.executeUpdate(sql);
+			System.out.println("statement executed");
+			conn.close();
+			System.out.println("updated successfully");
+		} catch (Exception e) {
+			System.out.println("update failed");
+		}
+
+	} // end of putIntoDB
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+	
+
+	}
+
+}

@@ -1,0 +1,21 @@
+package packageOne;
+
+public class PolyTest {
+	
+	public static void main(String[] args){
+		
+		PolyClassOne po1 = new PolyClassOne();
+		
+		PolyClassOne p02 = new PolyClassOne("Hayford","mathematics",31,1234);
+		
+		PolyClassTwo pt1 = new PolyClassTwo();
+		
+		po1.printDetails();
+		
+	    p02.printDetails();
+	    
+	    
+		
+	}
+
+}

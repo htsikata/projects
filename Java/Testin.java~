@@ -1,0 +1,51 @@
+import java.util.Random;
+
+public class Testin {
+	public static void main(String[] args){
+		
+		Thread t1 = new Thread(new Tred("one"));  // all these need to run simultaneously
+		Thread t2 = new Thread(new Tred("two"));  // remember constructor takes one argument
+		Thread t3 = new Thread(new Tred("three")); 
+		
+		// start the running the the threads
+		t1.start();   // this invokes the run method and execute whatever is in there
+		t2.start();   // this does same
+		t3.start();   // same thing here as well.
+		
+		
+		
+	}
+	
+}
+
+
+
+
+class Tred implements Runnable {
+		
+	String name;
+	int time;
+	Random r = new Random();
+	
+	public Tred(String s){  // constructor
+		name = s;
+		time = r.nextInt(999);
+	}
+	
+	@Override
+	public void run() {     //  run method implementation of the runnable interface
+		
+		try{
+			
+			System.out.printf("%s is sleeping for %d\n", name, time);
+			Thread.sleep(time);
+			System.out.printf("%s is done\n", name);
+			
+		}catch(Exception e){
+			System.out.println("thread exception");
+			
+		}
+			
+	}	
+	
+}

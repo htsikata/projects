@@ -1,0 +1,20 @@
+package packageGUI;
+
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+public class MainFrame extends JFrame{
+
+	public MainFrame(){
+		
+		super("Insertion Interface");	
+		
+		setSize(600,400);     // can call superclass methods directly here.
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		setVisible(true);
+
+	}
+
+}

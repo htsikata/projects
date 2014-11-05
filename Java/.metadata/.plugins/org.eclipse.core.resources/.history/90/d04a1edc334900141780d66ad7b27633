@@ -1,0 +1,53 @@
+package packageGUI;
+
+import java.awt.BorderLayout;
+import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
+
+public class MainFrame extends JFrame{
+	
+	private JButton btn;      // private fields
+	
+	private TextPanel textPanel;
+	
+	public MainFrame(){
+
+		super("Insertion Interface");	 // invoke the parent class constructor
+		
+		setLayout(new BorderLayout());    // set the type of layout manager for controls
+		
+		//textArea = new TextArea();        // create text area 
+		
+		btn = new JButton("click me!");   // create button
+		textPanel = new TextPanel();
+		
+		
+		btn.addActionListener(new ActionListener(){      // let the button listen for an action
+                                                         // anonymous class ActionListener interface
+			public void actionPerformed(ActionEvent e) {     
+				
+				textPanel.appendText("This is super easy");   // implement the actionPerformed method
+		
+			}
+			
+		});
+		
+		add(textPanel, BorderLayout.CENTER);    // add text area to center of the manager
+		
+		add(btn, BorderLayout.SOUTH);    // add button to south of the manager
+		
+		setSize(600,400);     // set the size of the window(the jframe) 
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // what happens when you click close 
+
+		setVisible(true);    // make the frame visible; to display.
+
+	}
+
+}
